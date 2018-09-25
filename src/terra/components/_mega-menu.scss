@@ -1,0 +1,130 @@
+/**
+ * Terra Design System
+ * _mega-menu.scss
+ */
+
+ .ter-mega-menu {
+	@include for-size(tablet-landscape-up) {
+		@include type-setting('sm','normal');
+		@include depth(2);
+		position: absolute;
+		top: $navbar-height;
+		left: 50%;
+		transform: translate(-50%, -20px);
+		transition: visibility 225ms ease-in-out, opacity 225ms ease-in-out, transform 225ms ease-in-out;
+		visibility: hidden;
+		opacity: 0;
+		width: 100%;
+		background-color: $mega-menu-bg;
+		box-sizing: border-box;
+		&:hover {
+			visibility: visible;
+			opacity: 1;
+			transform: translate(-50%, $mega-menu-offset);
+		}
+	}
+	&__list {
+		@include for-size(tablet-landscape-up) {
+			@include list-unstyled;
+			@include border-radius('all','small');
+			padding: spacing('md') 0;
+			margin-left: spacing('md');
+			margin-right: spacing('md');
+			li {
+				> ul {
+					@include list-unstyled;
+					> li {
+						padding: spacing('micro') 0;
+						display: block;
+						> a:not(.ter-button) {
+							@include type-setting('sm','normal');
+							color: $mega-menu-link-hover;
+							margin: 0;
+							text-decoration: none;
+							&:hover {
+								color: $mega-menu-link-hover;
+								text-decoration: none;
+							}
+							@include for-size(tablet-landscape-down) {
+								@include type-setting('base','normal');
+								display: block;
+							}
+							.is-inverse & {
+								color: $mega-menu-link-color;
+								&:hover {
+									color: $mega-menu-link-hover;
+								}
+							}
+						}
+						.is-inverse & {
+							color: $mega-menu-type-color !important;
+						}
+					}
+				}
+			}
+		}
+		@include for-size(tablet-landscape-down) {
+			@include list-unstyled();
+			.container,
+			.container-fluid,
+			.row {
+				margin: 0;
+				padding: 0;
+			}
+			[class^="col"] {
+				margin: 0;
+				padding: 0;
+				display: block;
+				width: 100%;
+			}
+			ul {
+				@include list-unstyled();
+			}
+		}
+	}
+	&__list-head {
+		@include type-setting('micro', 'bold');
+        padding: spacing('mini') 0;
+        text-transform: uppercase;
+        color: $mega-menu-type-color !important;
+        .is-inverse & {
+            color: $mega-menu-type-color !important;
+        }
+	}
+	&__trigger {
+		@include for-size(tablet-landscape-up) {
+			&:after {
+	            @include icon-base;
+	            content: "\f078";
+	            font-size: 75%;
+	            margin-left: spacing('xxs');
+	        }
+			&:hover {
+				~ .ter-mega-menu {
+					visibility: visible;
+		  			opacity: 1;
+		  			transform: translate(-50%, $mega-menu-offset);
+				}
+			}
+		}
+		// disable on mobile
+		@include for-size(tablet-landscape-down) {
+			position: relative;
+	        &:after {
+	            @include icon-base;
+	            content: "\f078";
+	            font-size: 75%;
+	            position: absolute;
+	            right: 0;
+	            top: 50%;
+	            transform: translateY(-50%);
+	        }
+	        ~ .ter-mega-menu {
+	        	display: none;
+	        	&.is-open {
+	        		display: block;
+	        	}
+	        }
+		}
+	}
+}

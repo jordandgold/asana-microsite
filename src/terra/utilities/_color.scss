@@ -1,0 +1,22 @@
+/**
+ * Color
+ */
+
+@each $name, $hex in $color-palette {
+    .color-#{$name} {
+        color: $hex;
+    }
+}
+
+:root {
+    @each $name, $hex in $color-palette {
+        --color-#{$name}: #{$hex};
+    }
+}
+
+.is-inverse {
+	color: type-color('inverse') !important;
+	*:not(a) {
+		color: type-color('inverse') !important;
+	}
+}

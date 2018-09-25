@@ -1,0 +1,35 @@
+/**
+ * Font Family
+ */
+
+@mixin font-sans-serif {
+	font-family: $font-sans-serif;
+}
+
+@mixin font-serif {
+	font-family:
+		georgia,
+		times,
+		serif;
+}
+
+@mixin font-code {
+	font-family:
+		Consolas,
+		Monaco,
+		'Andale Mono',
+		'Ubuntu Mono',
+		monospace;
+}
+
+.font-sans-serif {
+	@include font-sans-serif();
+}
+
+.font-serif {
+	@include font-serif();
+}
+
+.font-code {
+	@include font-code();
+}

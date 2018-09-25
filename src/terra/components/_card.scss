@@ -1,0 +1,33 @@
+.ter-card {
+	@include depth(1);
+    background: $card-bg;
+    position: relative;
+    margin-bottom: map-get($spacing-scale, medium);
+    border-radius: $card-border-radius;
+	&__body {
+		padding: spacing('lg');
+	}
+	&__title {
+		@include heading-5;
+	}
+	&__footer {
+		padding: spacing('none') spacing('lg') spacing('xs') spacing('lg');
+	}
+	&__image {
+		overflow: hidden;
+		&--top {
+			@include border-radius('top-left','none');
+			@include border-radius('top-right','none');
+			max-width: 100%;
+		}
+		&--left {
+			@include border-radius('top-left','none');
+			@include border-radius('bottom-left','none');
+			max-width: 100%;
+		}
+		> img {
+			width: 100%;
+			height: auto;
+		}
+	}
+}

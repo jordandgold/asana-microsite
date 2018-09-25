@@ -1,0 +1,83 @@
+/*
+
+  ALERTS
+
+*/
+
+@mixin alert-base() {
+    @include type-setting(0,0);
+    padding: spacing('sm');
+    display: block;
+    margin-bottom: spacing('sm');
+    position: relative;
+    height: 100%;
+    border-radius: $alert-border-radius;
+    &__icon {
+        margin-right: spacing('xs');
+        > i {
+            width: auto;
+            height: 100%;
+            display: inline-block;
+            &:before {
+                opacity: 0.6;
+            }
+        }
+    }
+    &__close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        opacity: 0.4;
+        padding: 0;
+        margin: 0;
+        background: transparent;
+        border: 0;
+        i {
+            padding: 0;
+            margin: 0;
+        }
+        &:hover {
+            opacity: 0.6;
+            cursor: pointer;
+        }
+    }
+}
+
+@mixin alert-variant($color, $bg: transparent) {
+    background-color: transparentize($color, .9);
+    border: .05rem solid darken($color, 10%);
+    .ter-alert__icon {
+        > i {
+            &:before {
+                color: darken($color, 20%);
+            }
+        }
+    }
+    .ter-alert__close {
+        i {
+            color: darken($color, 15%);
+        }
+    }
+    hr {
+        opacity: 0.4;
+        background-color: darken($color, 10%);
+    }
+    a {
+        color: darken($color, 20%);
+        text-decoration: underline;
+        &:hover {
+            color: darken($color, 10%);
+            text-decoration: underline;
+        }
+    }
+}
+
+.ter-alert {
+    @include alert-base();
+}
+
+@each $color, $value in $emotive-colors {
+  .ter-alert--#{$color} {
+    @include alert-variant($value);
+  }
+}

@@ -1,0 +1,70 @@
+
+@mixin badge-base() {
+	@include border-radius(all, small);
+	@include type-setting('micro', 'bold');
+	padding: calc(var(--spacing-extra-extra-extra-small) - .05rem) spacing('xxs');
+	line-height: 100%;
+	padding: spacing('micro') spacing('mini');
+	margin: 0 spacing('mini') 0 0;
+	transition: background-color 200ms ease-in-out, border-color 200ms ease-in-out, color 200ms ease-in-out;
+	&:last-child {
+		margin-right: 0;
+	}
+	&__close {
+        opacity: 0.4;
+        padding: 0;
+        margin: 0 0 0 spacing('micro');
+        background: transparent;
+        border: 0;
+        &:after {
+        	@include icon-base();
+        	content: "\f00d";
+        }
+        &:hover {
+        	cursor: pointer;
+        	opacity: 0.6;
+        }
+	}
+}
+
+.badge {
+	@include badge-base();
+}
+
+@mixin badge-variant($bg, $color: $bg, $border: $bg) {
+	@if $bg == $color {
+		color: yiq-contrast-color($bg);
+	}
+	@else {
+		color: $color;
+	}
+	border: .05rem solid $border;
+	background-color: $bg;
+	&[href] {
+		&:hover,
+		&:active {
+			background-color: darken($bg, 10%);
+			border-color: darken($bg, 10%);
+			text-decoration: none;
+			color: yiq-contrast-color($bg);
+		}
+		&:focus {
+			background-color: darken($bg, 17%);
+			border-color: darken($bg, 17%);
+			text-decoration: none;
+			color: yiq-contrast-color($bg);
+		}
+	}
+}
+
+@each $color, $value in $emotive-colors {
+  .badge--#{$color} {
+    @include badge-variant($value);
+  }
+}
+
+@each $color, $value in $emotive-colors {
+  .badge--outline--#{$color} {
+    @include badge-variant(transparent, $value, $value);
+  }
+}

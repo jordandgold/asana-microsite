@@ -1,0 +1,65 @@
+.pagination {
+	&__list {
+		@include list-inline();
+		margin-top: spacing('xs');
+		margin-bottom: spacing('xs');
+		display: flex;
+		text-align: center;
+	    justify-content: center !important;
+	    > li {
+	    	margin-right: 0;
+	    }
+	}
+	&__list-item {
+		margin: 0;
+		padding: 0;
+		a,
+		> span {
+			padding: spacing('mini') spacing('xxs');
+		    margin: 0;
+		    text-decoration: none;
+		    i {
+		    	font-size: 75%;
+		    }
+		    &:hover {
+		    	border-bottom: 1px solid darken($pagination-border-color, 10%);
+		    }
+		}
+		&:not(:first-child):not(:last-child) {
+			a,
+			> span {
+		    	border-radius: 0px;
+		    	border-right: 0px;
+		    }
+		}
+		&:first-child:not(:only-of-type) {
+			a,
+			> span {
+				border-right: 0;
+				border-top-right-radius: 0px;
+				border-bottom-right-radius: 0px;
+			}
+		}
+		&:last-child:not(:only-of-type) {
+			a,
+			> span {
+				border-top-left-radius: 0px;
+				border-bottom-left-radius: 0px;
+			}
+		}
+		&:only-of-type {
+			a,
+			> span {
+			}
+		}
+		&.is-active {
+			a,
+			span {
+				border-bottom: 1px solid $pagination-border-color;
+				&:hover {
+			    	border-bottom: 1px solid darken($pagination-border-color, 10%);
+			    }
+			}
+		}
+	}
+}

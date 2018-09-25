@@ -1,0 +1,63 @@
+/**
+ * Spacing
+ */
+
+:root {
+    @each $size, $value in $spacing-scale {
+        --spacing-#{$size}: #{$value};
+    }
+}
+
+@each $size, $value in $spacing-scale {
+
+	// padding
+    .pad-#{$size} {
+        padding: $value !important;
+    }
+    .pad-h-#{$size} {
+        padding-left: $value !important;
+        padding-right: $value !important;
+    }
+    .pad-v-#{$size} {
+        padding-top: $value !important;
+        padding-bottom: $value !important;
+    }
+    .pad-top-#{$size} {
+        padding-top: $value !important;
+    }
+    .pad-right-#{$size} {
+        padding-right: $value !important;
+    }
+    .pad-bottom-#{$size} {
+        padding-bottom: $value !important;
+    }
+    .pad-left-#{$size} {
+        padding-left: $value !important;
+    }
+
+    // margin
+    .margin-#{$size} {
+        margin: $value !important;
+    }
+    .margin-h-#{$size} {
+        margin-left: $value !important;
+        margin-right: $value !important;
+    }
+    .margin-v-#{$size} {
+        margin-top: $value !important;
+        margin-bottom: $value !important;
+    }
+    .margin-top-#{$size} {
+        margin-top: $value !important;
+    }
+    .margin-right-#{$size} {
+        margin-right: $value !important;
+    }
+    .margin-bottom-#{$size} {
+        margin-bottom: $value !important;
+    }
+    .margin-left-#{$size} {
+        margin-left: $value !important;
+    }
+
+}

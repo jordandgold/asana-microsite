@@ -1,0 +1,290 @@
+/**
+ * Terra Design System
+ * _navbar.scss
+ */
+
+// fix for body top-margin
+body.has-nav {
+	padding-top: $navbar-height;
+}
+
+// prevent body scrolling when mobile nav is open
+body.has-open-nav {
+	overflow: hidden;
+}
+
+.ter-navbar {
+	@include z-index(9);
+	height: $navbar-height;
+	background: $navbar-bg;
+	transition: transform .5s ease;
+	position: relative;
+	width: 100%;
+	border-bottom: $navbar-border-width solid $navbar-border-color;
+	&.is-inverse {
+		background: $navbar-inverse-bg;
+		border-bottom: $navbar-border-width solid $navbar-inverse-border-color;
+	}
+	&.is-fixed {
+		position: fixed;
+		top: 0;
+	}
+	&.is-hidden {
+		transform: translateY(calc(#{($navbar-height + $navbar-border-width) * -1}));
+	}
+	> .container-fluid {
+		@include clearfix();
+		@include for-size(tablet-landscape-up) {
+	    	display: flex;
+	    	justify-content: space-between;
+			width: stretch;
+		}
+	}
+	&__toggle {
+		height: $navbar-height;
+		float: right;
+		display: inline-block;
+		padding: 0;
+		margin: 0;
+		border: 0;
+		background: transparent;
+		@include for-size(tablet-landscape-up) {
+			display: none;
+		}
+		.line {
+			width: 25px;
+			height: 2px;
+			background-color: $navbar-menu-icon-color;
+			display: block;
+			margin: 5px auto;
+			transition: all 0.3s ease-in-out;
+		}
+		&.is-active .line:nth-child(1){
+			transform: translateY(7px);
+		}
+		&.is-active .line:nth-child(3){
+			transform: translateY(-7px);
+		}
+		&:hover{
+			cursor: pointer;
+		}
+	}
+	&__brand {
+		@include type-setting('base','normal');
+		height: $navbar-height;
+	    display: inline-block;
+	    line-height: $navbar-height;
+	    text-decoration: none;
+	    &[href] {
+	    	color: $navbar-link-color;
+			&:hover {
+				color: $navbar-link-hover;
+				text-decoration: none;
+			}
+			.is-inverse & {
+				color: $navbar-inverse-link-color;
+				&:hover {
+					color: $navbar-inverse-link-hover-color;
+					text-decoration: none;
+				}
+			}
+	    }
+		img {
+			@include height('xs');
+			padding: spacing('xs') 0;
+		}
+	}
+	&__nav {
+		@include box-shadow(2);
+        position: absolute;
+        top: $navbar-height;
+        left: 0;
+        width: 100%;
+        background: $navbar-bg;
+        display: none;
+        flex: 1;
+        justify-content: flex-end;
+		@include for-size(tablet-landscape-up) {
+			@include box-shadow("none");
+			display: inline-block;
+			width: initial;
+			position: static;
+			height: calc(#{$navbar-height} - #{$navbar-border-width});
+        	top: unset;
+        	left: unset;
+        	display: flex;
+	    }
+	    .is-inverse & {
+			background: $navbar-inverse-bg;
+		}
+	}
+    &__menu {
+        display: block;
+        width: 100%;
+        height: auto;
+        padding: spacing('xs') 0;
+        margin: 0;
+        float: right;
+        @include for-size(tablet-landscape-down) {
+        	padding: 0;
+        	overflow: scroll;
+        	max-height: 75vh;
+        }
+        &--right {
+        	margin-left: auto;
+        }
+        &--left {
+        	margin-right: auto;
+        }
+    	@include for-size(tablet-landscape-up) {
+    		display: table;
+    		width: initial;
+    		padding-top: 0;
+    		padding-bottom: 0;
+    		height: $navbar-height;
+	    }
+	}
+	&__menu-item {
+		display: block;
+        width: 100%;
+        padding-left: var(--outer-margin);
+		padding-right: var(--outer-margin);
+		padding-top: spacing('xs');
+		padding-bottom: spacing('xs');
+		border-bottom: 1px solid $navbar-border-color;
+		&:last-child {
+			border-bottom: 0px;
+		}
+		@include for-size(tablet-landscape-up) {
+			display: table-cell;
+			width: initial;
+			padding: 0 spacing('xs');
+			vertical-align: middle;
+			border: 0px;
+	    }
+	    > a:not(.ter-button) {
+			@include type-setting('sm','normal');
+			color: $navbar-link-color;
+			margin: 0;
+			padding: 0;
+			text-decoration: none;
+			display: inline-block;
+			height: $navbar-height;
+			line-height: $navbar-height;
+			&:hover {
+				color: $navbar-link-hover;
+				text-decoration: none;
+			}
+			@include for-size(tablet-landscape-down) {
+				@include type-setting('base','normal');
+				display: block;
+				line-height: initial;
+				height: auto;
+			}
+			.is-inverse & {
+				color: $navbar-inverse-link-color;
+				&:hover {
+					color: $navbar-inverse-link-hover-color;
+				}
+			}
+		}
+		&.ter-dropdown {
+			@include for-size(tablet-landscape-down) {
+				padding-left: var(--outer-margin);
+				padding-right: var(--outer-margin);
+			}
+			.ter-dropdown__toggle {
+				@include for-size(tablet-landscape-down) {
+					&:after {
+						position: absolute;
+						right: 0;
+						top: 50%;
+						transform: translateY(-50%);
+					}
+				}
+			}
+			.ter-dropdown__menu {
+				@include for-size(tablet-landscape-down) {
+					box-shadow: unset;
+					background: transparent;
+				}
+				a {
+					@include for-size(tablet-landscape-down) {
+						@include type-setting(0,'normal');
+						color: $dropdown-link-color;
+						display: block;
+						line-height: initial;
+						height: auto;
+						padding-left: 0;
+						padding-right: 0;
+						&:hover {
+							@include for-size(tablet-landscape-down) {
+								color: $dropdown-link-color;
+								text-decoration: none;
+							}
+						}
+					}
+					.is-inverse & {
+						@include for-size(tablet-landscape-down) {
+							color: $navbar-inverse-link-color;
+							&:hover {
+								color: $navbar-inverse-link-hover-color;
+							}
+						}
+					}
+				}
+				@include for-size(tablet-landscape-down) {
+					position: unset;
+				    float: unset;
+				    display: none;
+				    visibility: visible;
+				    opacity: 1;
+				    border: 0px;
+				    background: transparent;
+				    border-radius: 0px;
+				    padding: 0;
+				    margin: 0;
+				}
+				.ter-dropdown__item--no-link {
+					@include for-size(tablet-landscape-down) {
+						padding-left: 0;
+						padding-right: 0;
+					}
+				}
+			}
+			&.is-open {
+				.ter-dropdown__menu {
+					@include for-size(tablet-landscape-down) {
+					    display: block;
+					}
+				}
+			}
+		}
+	}
+	&__form {
+		@include for-size(tablet-landscape-down) {
+		    padding: spacing('mini') spacing('md');
+		}
+	}
+	&.is-hidden {
+		transform: translateY(-100%);
+	}
+}
+
+// secondary navbar
+.ter-secondary-navbar {
+	@include z-index(9);
+	height: $navbar-height;
+	background: $navbar-bg;
+	transition: transform .5s ease;
+	position: fixed;
+	top: 0;
+	display: flex;
+	justify-content: space-between;
+	width: stretch;
+	border-bottom: $navbar-border-width solid $navbar-border-color;
+	transform: translateY(calc(#{($navbar-height + $navbar-border-width) * -1}));
+	&.is-shown {
+		transform: translateY(0);
+	}
+}

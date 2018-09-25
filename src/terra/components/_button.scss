@@ -1,0 +1,138 @@
+//
+// Buttons
+//
+
+// reset all buttons
+button {
+    @include button-reset();
+}
+
+// button base styles
+.ter-button,
+a.ter-button {
+    @include button-base();
+}
+
+// emotive color palette buttons
+@each $color, $value in $emotive-colors {
+  .ter-button--#{$color},
+  a.ter-button--#{$color} {
+    @include button-variant($value);
+  }
+}
+
+// other buttons
+.ter-button--outline,
+a.ter-button--outline {
+    @include button-variant(
+        transparent,
+        $button-outline-text-color,
+        $button-outline-border-color,
+    );
+    .is-inverse & {
+        color: type-color('inverse');
+    }
+}
+.ter-button--ghost,
+a.ter-button--ghost {
+    @include button-variant(
+        transparent,
+        $link-color,
+        $link-color,
+    );
+    border: 0px;
+    &:hover {
+        color: $link-hover-color;
+        text-decoration: none;
+    }
+    &:active {
+        box-shadow: none;
+    }
+}
+
+// button sizing
+.ter-button--large,
+a.ter-button--large {
+    @include type-setting('base','normal');
+    padding: spacing('xxs') spacing('sm');
+}
+.ter-button--small,
+a.ter-button--small {
+    @include type-setting('micro','normal');
+    padding: spacing('micro') spacing('mini');
+}
+
+// button widths
+.ter-button--block,
+a.ter-button--block {
+    padding: spacing('xxs') 0;
+    display: block;
+    width: 100%;
+}
+.ter-button--fixed-width,
+a.ter-button--fixed-width {
+    width: 100%;
+}
+
+// button w/ icon
+.ter-button--icon,
+a.ter-button--icon {
+    @include button-variant(
+        transparent,
+        $button-icon-color
+    );
+    padding: spacing('micro') spacing('mini');
+    margin: spacing('none');
+    outline: none;
+    border: 0;
+    i {
+        margin-left: 0;
+        &:before {
+            font-size: 125%;
+        }
+    }
+    &:hover {
+        text-decoration: underline;
+        i {
+            &:before {
+                color: $button-icon-hover !important;
+            }
+        }
+    }
+    &:active {
+        box-shadow: none;
+    }
+}
+
+// split button
+.ter-split-button {
+    position: relative;
+    button {
+        display: inline-block;
+        float: left;
+        margin-right: 1px;
+        &:first-of-type {
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+        &:last-of-type {
+            margin-right: 0px;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+        }
+        &:only-of-type {
+            margin-right: 0px;
+            border-radius: initial;
+        }
+    }
+    .dropdown {
+        position: unset;
+        &:after {
+            @include icon-base();
+            content: "\f078";
+            margin: 0;
+            padding: 0;
+            font-size: 75%;
+        }
+    }
+}
