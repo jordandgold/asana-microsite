@@ -14,6 +14,7 @@ $grayscale: map-merge((
     'white':   #ffffff,
     'light-1': #f6f8f9,
     'light-2': #cdcfd2,
+    'light-3': #9ca6af,
     'gray-1': #49505b,
     'dark-1': #222a36,
     'dark-2': #1b2432,
@@ -201,12 +202,12 @@ $compact-tabs-underline-color: grayscale('dark-1');
 $pagination-border-color: grayscale('gray-1');
 
 // body
-$body-bg-color: grayscale('light-1');
+$body-bg-color: grayscale('white');
 $body-font-color: type-color('gray-1');
 
 // headers
 $header-font-color: grayscale('dark-2');
-$header-font-weight: font-weight('black');
+$header-font-weight: font-weight('bold');
 
 // links
 $link-color: brand-color('brand-1');
@@ -217,11 +218,11 @@ $link-inverse-color: grayscale('gray-1');
 $link-inverse-hover-color: darken($link-inverse-color, 10%);
 
 // navigation bar
-$navbar-height: height('lg');
-$navbar-bg: grayscale('white');
-$navbar-link-color: $link-color;
-$navbar-link-hover: $link-hover-color;
-$navbar-border-width: 1px;
+$navbar-height: height('md');
+$navbar-bg: grayscale('dark-1');
+$navbar-link-color: $link-inverse-color;
+$navbar-link-hover: $link-inverse-hover-color;
+$navbar-border-width: 0px;
 $navbar-border-color: grayscale('gray-1');
 $navbar-menu-icon-color: grayscale('gray-1');
 $navbar-inverse-bg: grayscale('dark-1');

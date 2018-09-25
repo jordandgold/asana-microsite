@@ -1,1 +1,19 @@
+// import Terra
 @import "terra/terra";
+
+// custom styles
+
+.task {
+	@include clearfix();
+	padding: spacing('md') 0;
+	border-bottom: 1px solid grayscale('light-2');
+	&__title {
+		float: left;
+	}
+	&__options {
+		float: right;
+	}
+	&:last-child {
+		border-bottom: 0px;
+	}
+}

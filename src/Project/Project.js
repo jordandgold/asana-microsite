@@ -72,12 +72,16 @@ class Project extends Component {
 	render() {
 		return (
 			<div className="project">
-				<h2 class="project__title">{this.state.name}</h2>
-				<ul className="project__task-list">
-					{this.state.tasks.map(task =>
-					<Task name={task.name} id={task.id} />
-					)}
-        		</ul>
+				<div className="bg-light-1 pad-v-lg">
+					<h2 className="project__title text-center">{this.state.name}</h2>
+				</div>
+				<div className="container-fluid narrow">
+					<ul className="project__task-list">
+						{this.state.tasks.map(task =>
+						<Task name={task.name} id={task.id} />
+						)}
+	        		</ul>
+        		</div>
 			</div>
 		);
 	}

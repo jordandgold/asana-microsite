@@ -24,13 +24,15 @@ class Task extends Component {
 	render() {
 
 		const isHiddenClass = this.state.isHidden ? 'hidden' : '';
-		const listItemClasses = `${isHiddenClass} project__task-list-item list-unstyled`;
+		const listItemClasses = `${isHiddenClass} project__task-list-item task list-unstyled`;
 
 		return (
 			<li className={listItemClasses}>
-				<div class="font-size-md">{this.props.name}</div>
-				<button className="ter-button ter-button--primary ter-button--small" onClick={this.handleViewTask}>View Task</button>
-				<button className="ter-button ter-button--outline ter-button--small" onClick={this.handleHideTask}>Hide</button>
+				<div className="task__title font-size-md">{this.props.name}</div>
+				<ul className="task__options list-inline list-inline--left">
+					<li><button className="ter-button ter-button--primary ter-button--small" onClick={this.handleViewTask}>View Task</button></li>
+					<li><button className="ter-button ter-button--outline ter-button--small" onClick={this.handleHideTask}><i className="fa fa-times"></i></button></li>
+				</ul>
 			</li>
 		)
 	}
