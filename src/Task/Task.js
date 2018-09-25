@@ -28,9 +28,9 @@ class Task extends Component {
 
 		return (
 			<li className={listItemClasses}>
-				{this.props.name}
-				<button className="ter-button ter-button--primary" onClick={this.handleViewTask}>View Task</button>
-				<button className="ter-button ter-button--outline" onClick={this.handleHideTask}>Hide</button>
+				<div class="font-size-md">{this.props.name}</div>
+				<button className="ter-button ter-button--primary ter-button--small" onClick={this.handleViewTask}>View Task</button>
+				<button className="ter-button ter-button--outline ter-button--small" onClick={this.handleHideTask}>Hide</button>
 			</li>
 		)
 	}

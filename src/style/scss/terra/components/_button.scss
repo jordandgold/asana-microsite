@@ -58,7 +58,7 @@ a.ter-button--large {
 }
 .ter-button--small,
 a.ter-button--small {
-    @include type-setting('micro','normal');
+    @include type-setting('sm','normal');
     padding: spacing('micro') spacing('mini');
 }
 
