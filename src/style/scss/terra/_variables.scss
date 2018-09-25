@@ -12,23 +12,11 @@
 $grayscale: () !default;
 $grayscale: map-merge((
     'white':   #ffffff,
-    'light-0': #f9f9fb,
-    'light-1': #f3f3f7,
-    'gray-0':  #eaeaef,
-    'gray-1':  #e2e2e7,
-    'gray-2':  #d0d0d7,
-    'gray-3':  #bfbfc6,
-    'gray-4':  #aeaeb6,
-    'gray-5':  #9d9da6,
-    'gray-6':  #8c8b96,
-    'gray-7':  #7b7a86,
-    'gray-8':  #6a6976,
-    'gray-9':  #595868,
-    'gray-10': #474655,
-    'dark-0':  #363545,
-    'dark-1':  #262533,
-    'dark-2':  #1b1a26,
-    'dark-3':  #0b0a12,
+    'light-1': #f6f8f9,
+    'light-2': #cdcfd2,
+    'gray-1': #49505b,
+    'dark-1': #222a36,
+    'dark-2': #1b2432,
     'black':   #000000,
 ), $grayscale);
 
@@ -38,9 +26,9 @@ $grayscale: map-merge((
 }
 $brand-colors: () !default;
 $brand-colors: map-merge((
-    'brand-1':  #009AD9,
-    'brand-2':  #005F9E,
-    'accent-1': #FFBE00,
+    'brand-1':  #ff6d92,
+    'brand-2':  #796eff,
+    'accent-1': #1aafd0,
 ), $brand-colors);
 
 // emotive colors
@@ -55,7 +43,7 @@ $emotive-colors: map-merge((
     'success':  #1cb260,
     'warning':  #FFBE00,
     'light':    grayscale('light-1'),
-    'dark':     grayscale('dark-0'),
+    'dark':     grayscale('dark-1'),
 ), $emotive-colors);
 
 // create color palette map
@@ -99,25 +87,15 @@ $font-weight: map-merge((
 ), $font-weight);
 
 // type scale
-// $type-scale: (
-//     -2: 12px,
-//     -1: 16px,
-//     0: 20px,
-//     1: 28px,
-//     2: 36px,
-//     3: 44px,
-//     4: 52px,
-//     5: 72px
-// );
 $type-scale: () !default;
 $type-scale: map-merge((
-    'micro': 12px,
-    'sm': 16px,
-    'base': 20px,
-    'md': 28px,
-    'lg': 36px,
-    'xl': 44px,
-    'super': 52px,
+    'micro': 10px,
+    'sm': 12px,
+    'base': 16px,
+    'md': 20px,
+    'lg': 28px,
+    'xl': 36px,
+    'super': 44px,
     'mega': 72px
 ), $type-scale);
 
@@ -207,27 +185,27 @@ $box-shadows: (
 );
 
 // globals
-$border-radius-base: border-radius('none');
+$border-radius-base: border-radius('sm');
 
 // navigation tabs
-$nav-tabs-link-color: grayscale('gray-7');
+$nav-tabs-link-color: grayscale('gray-1');
 $nav-tabs-link-hover: grayscale('dark-1');
-$nav-tabs-border-color: grayscale('gray-2');
+$nav-tabs-border-color: grayscale('gray-1');
 
 // compact tabs
-$compact-tabs-link-color: grayscale('gray-7');
+$compact-tabs-link-color: grayscale('gray-1');
 $compact-tabs-link-hover: grayscale('dark-1');
 $compact-tabs-underline-color: grayscale('dark-1');
 
 // pagination
-$pagination-border-color: grayscale('gray-2');
+$pagination-border-color: grayscale('gray-1');
 
 // body
-$body-bg-color: grayscale('white');
-$body-font-color: type-color('normal');
+$body-bg-color: grayscale('light-1');
+$body-font-color: type-color('gray-1');
 
 // headers
-$header-font-color: grayscale('dark-1');
+$header-font-color: grayscale('dark-2');
 $header-font-weight: font-weight('black');
 
 // links
@@ -235,7 +213,7 @@ $link-color: brand-color('brand-1');
 $link-hover-color: darken($link-color, 10%);
 $link-highlight: true;
 $link-highlight-color: lighten(brand-color('brand-1'), 30%);
-$link-inverse-color: grayscale('gray-4');
+$link-inverse-color: grayscale('gray-1');
 $link-inverse-hover-color: darken($link-inverse-color, 10%);
 
 // navigation bar
@@ -245,9 +223,9 @@ $navbar-link-color: $link-color;
 $navbar-link-hover: $link-hover-color;
 $navbar-border-width: 1px;
 $navbar-border-color: grayscale('gray-1');
-$navbar-menu-icon-color: grayscale('gray-3');
-$navbar-inverse-bg: grayscale('dark-0');
-$navbar-inverse-border-color: grayscale('dark-0');
+$navbar-menu-icon-color: grayscale('gray-1');
+$navbar-inverse-bg: grayscale('dark-1');
+$navbar-inverse-border-color: grayscale('dark-1');
 $navbar-inverse-link-color: $link-inverse-color;
 $navbar-inverse-link-hover-color: $link-inverse-hover-color;
 
@@ -261,11 +239,11 @@ $mega-menu-link-hover: darken($link-color, 10%);
 
 // buttons
 $button-border-radius: $border-radius-base;
-$button-border-size: 1px;
-$button-icon-color: grayscale('gray-4');
-$button-icon-hover: grayscale('gray-6');
-$button-outline-text-color: grayscale('gray-10');
-$button-outline-border-color: brand-color('brand-1');
+$button-border-size: 2px;
+$button-icon-color: grayscale('gray-1');
+$button-icon-hover: grayscale('gray-1');
+$button-outline-text-color: grayscale('gray-1');
+$button-outline-border-color: grayscale('light-2');
 $button-outline-inverse-text-color: text-color('inverse');
 $button-outline-inverse-border-color: grayscale('white');
 
@@ -280,13 +258,13 @@ $card-border-radius: $border-radius-base;
 
 // dropdowns
 $dropdown-border-size: 1px;
-$dropdown-border-color: grayscale('gray-4');
+$dropdown-border-color: grayscale('gray-1');
 $dropdown-border-radius: $border-radius-base;
 $dropdown-bg: grayscale('white');
 $dropdown-link-color: grayscale('dark-1');
 $dropdown-link-hover-bg: grayscale('light-1');
-$drodown-arrow-color: grayscale('gray-6');
-$dropdown-no-link-color: grayscale('gray-6');
+$drodown-arrow-color: grayscale('gray-1');
+$dropdown-no-link-color: grayscale('gray-1');
 
 // panels
 $panel-bg: grayscale('white');
@@ -295,22 +273,22 @@ $panel-border-color: grayscale('light-1');
 // accordion
 $accordion-bg: grayscale('white');
 $accordion-expanded-bg: grayscale('light-1');
-$accordion-border-color: grayscale('gray-4');
-$accordion-arrow-color: grayscale('gray-4');
+$accordion-border-color: grayscale('gray-1');
+$accordion-arrow-color: grayscale('gray-1');
 $accordion-border-radius: $border-radius-base;
 
 // form input
 $input-bg: grayscale('white');
 $input-text-color: brand-color(text-2);
 $input-border-radius: $border-radius-base;
-$input-border-color: grayscale('gray-4');
+$input-border-color: grayscale('gray-1');
 $input-border-size: .05rem;
 $input-label-color: grayscale('dark-1');
-$input-placeholder-color: grayscale('gray-2');
+$input-placeholder-color: grayscale('gray-1');
 $input-focus-border-color: brand-color('brand-1');
-$input-inverse-bg: grayscale('gray-10');
-$input-inverse-text-color: grayscale('gray-4');
-$input-inverse-border-color: grayscale('dark-0');
+$input-inverse-bg: grayscale('dark-1');
+$input-inverse-text-color: grayscale('gray-1');
+$input-inverse-border-color: grayscale('dark-1');
 
 // checkboxes
 $checkbox-border-color: $input-border-color;
@@ -333,8 +311,8 @@ $modal-overlay-bg: grayscale('dark-1');
 $alert-border-radius: $border-radius-base;
 
 // tree menu
-$tree-menu-link-color: grayscale('gray-4');
-$tree-menu-link-hover: grayscale('gray-10');
+$tree-menu-link-color: grayscale('gray-1');
+$tree-menu-link-hover: grayscale('gray-1');
 
 // viewport breakpoints
 $breakpoint-xs: 600px;
