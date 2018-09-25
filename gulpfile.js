@@ -9,12 +9,12 @@ gulp.task('prod:sass', function () {
   var processors = [
       autoprefixer({browsers: ['last 1 version']}),
   ];
-  return gulp.src('./public/scss/style.scss')
+  return gulp.src('./src/style/scss/style.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss(processors))
-    .pipe(gulp.dest('./public/css'));
+    .pipe(gulp.dest('./src/style/css'));
 });
  
 gulp.task('dev', function () {
-  gulp.watch('./public/**/scss/**/*.scss', ['prod:sass']);
+  gulp.watch('./src/**/scss/**/*.scss', ['prod:sass']);
 });
