@@ -28,10 +28,10 @@ class Task extends Component {
 
 		return (
 			<li className={listItemClasses}>
-				<div className="task__title font-size-md">{this.props.name}</div>
+				<div className="task__name">{this.props.name}</div>
 				<ul className="task__options list-inline list-inline--left">
-					<li><button className="ter-button ter-button--primary ter-button--small" onClick={this.handleViewTask}>View Task</button></li>
-					<li><button className="ter-button ter-button--outline ter-button--small" onClick={this.handleHideTask}><i className="fa fa-times"></i></button></li>
+					<li><button className="ter-button ter-button--secondary ter-button--small" onClick={this.handleViewTask}>View Task</button></li>
+					<li><button className="ter-button ter-button--outline ter-button--small" onClick={this.handleHideTask}>Hide Task</button></li>
 				</ul>
 			</li>
 		)

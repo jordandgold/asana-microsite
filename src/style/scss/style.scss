@@ -17,3 +17,10 @@
 		border-bottom: 0px;
 	}
 }
+
+.project {
+	&__task-list {
+		@include list-unstyled();
+		padding: spacing('md') 0;
+	}
+}
