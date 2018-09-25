@@ -53,12 +53,12 @@ a.ter-button--ghost {
 // button sizing
 .ter-button--large,
 a.ter-button--large {
-    @include type-setting('base','normal');
+    @include type-setting('base','bold');
     padding: spacing('xxs') spacing('sm');
 }
 .ter-button--small,
 a.ter-button--small {
-    @include type-setting('sm','normal');
+    @include type-setting('sm','bold');
     padding: spacing('micro') spacing('mini');
 }
 
@@ -72,6 +72,11 @@ a.ter-button--block {
 .ter-button--fixed-width,
 a.ter-button--fixed-width {
     width: 100%;
+}
+
+.ter-button--round {
+    border-radius: 9999px;
+    padding: spacing('micro');
 }
 
 // button w/ icon

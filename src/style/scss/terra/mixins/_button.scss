@@ -42,29 +42,15 @@
 @mixin button-variant($bg, $color: $bg, $borderColor: $bg, $bgHover: $bg) {
     background-color: $bg;
     border: $button-border-size solid $borderColor;
-    @if $bg == $color {
-        color: yiq-contrast-color($bg);
-    }
-    @else {
-        color: $color;
-    }
+    color: $button-text-color;
+    font-weight: $button-font-weight;
     &:visited,
     &:active,
     &:focus {
-        @if $bg == $color {
-            color: yiq-contrast-color($bg);
-        }
-        @else {
-            color: $color;
-        }
+        color: $button-text-color;
     }
     &:hover {
-        @if $bg == $color {
-            color: yiq-contrast-color($bg);
-        }
-        @else {
-            color: $color;
-        }
+        color: $button-text-color;
         text-decoration: none;
         @if $bg == $bgHover {
             background-color: darken($bg, 7%);

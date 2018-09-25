@@ -39,7 +39,7 @@ $brand-colors: map-merge((
 $emotive-colors: () !default;
 $emotive-colors: map-merge((
     'primary':  brand-color('brand-1'),
-    'secondary':  brand-color('accent-1'),
+    'secondary':  brand-color('brand-2'),
     'danger':   #ce2740,
     'success':  #1cb260,
     'warning':  #FFBE00,
@@ -219,9 +219,9 @@ $link-inverse-hover-color: darken($link-inverse-color, 10%);
 
 // navigation bar
 $navbar-height: height('md');
-$navbar-bg: grayscale('dark-1');
-$navbar-link-color: $link-inverse-color;
-$navbar-link-hover: $link-inverse-hover-color;
+$navbar-bg: grayscale('white');
+$navbar-link-color: $link-color;
+$navbar-link-hover: $link-hover-color;
 $navbar-border-width: 0px;
 $navbar-border-color: grayscale('gray-1');
 $navbar-menu-icon-color: grayscale('gray-1');
@@ -245,8 +245,10 @@ $button-icon-color: grayscale('gray-1');
 $button-icon-hover: grayscale('gray-1');
 $button-outline-text-color: grayscale('gray-1');
 $button-outline-border-color: grayscale('light-2');
-$button-outline-inverse-text-color: text-color('inverse');
+$button-outline-inverse-text-color: type-color('inverse');
 $button-outline-inverse-border-color: grayscale('white');
+$button-text-color: type-color('inverse');
+$button-font-weight: font-weight('bold');
 
 // tooltips
 $tooltip-bg: grayscale('dark-1');

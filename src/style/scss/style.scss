@@ -5,9 +5,9 @@
 
 .task {
 	@include clearfix();
-	padding: spacing('md') 0;
+	padding: spacing('xs') 0;
 	border-bottom: 1px solid grayscale('light-2');
-	&__title {
+	&__name {
 		float: left;
 	}
 	&__options {
