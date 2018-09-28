@@ -31,7 +31,7 @@ class Task extends Component {
 				<div className="task__name">{this.props.name}</div>
 				<ul className="task__options list-inline list-inline--left">
 					<li><button className="ter-button ter-button--secondary ter-button--small" onClick={this.handleViewTask}>View Task</button></li>
-					<li><button className="ter-button ter-button--outline ter-button--small" onClick={this.handleHideTask}>Hide Task</button></li>
+					<li><button className="ter-button ter-button--outline ter-button--small" onClick={this.handleHideTask}>Hide</button></li>
 				</ul>
 			</li>
 		)
