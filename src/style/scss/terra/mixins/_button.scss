@@ -60,7 +60,7 @@
     }
     &:hover {
         @if $bg == $color {
-            color: yiq-contrast-color($bg);
+            color: $button-text-color;
         }
         @else {
             color: $color;
