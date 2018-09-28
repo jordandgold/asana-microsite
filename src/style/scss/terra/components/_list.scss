@@ -16,6 +16,9 @@
 			margin-left: 0;
 			margin-right: spacing('xxs');
 			padding: 0;
+			&:last-child {
+				margin-right: spacing('none');
+			}
 		}
 	}
 	&--center {
