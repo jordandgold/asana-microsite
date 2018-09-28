@@ -73,7 +73,9 @@ class Project extends Component {
 		return (
 			<div className="project">
 				<div className="bg-light-1 pad-v-lg">
-					<h2 className="project__title text-center pad-bottom-none">{this.state.name}</h2>
+					<div className="container-fluid wrap">
+						<h2 className="project__title text-center pad-bottom-none">{this.state.name}</h2>
+					</div>
 				</div>
 				<div className="container-fluid narrow">
 					<ul className="project__task-list">
